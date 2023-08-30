@@ -3,21 +3,19 @@ import java.util.List;
 
 public class CarrinhoDeCompras {
   private List<Item> listaItem;
-  private Item item;
   
   public CarrinhoDeCompras() {
     this.listaItem = new ArrayList<>();
   }
 
   public void adicionarItem(String nome, double preco, int quantidade) {
-    item = new Item(nome, preco, quantidade);
-    listaItem.add(item);
+    listaItem.add(new Item(nome, preco, quantidade));
   }
 
   public void removerItem(String nome) {
     List<Item> listaItensParaRemover = new ArrayList<>();
     for (Item item : listaItem) {
-      if (item.getNome() == nome) {
+      if (item.getNome().equalsIgnoreCase(nome)) {
         listaItensParaRemover.add(item);
       }
     }
